@@ -1,0 +1,90 @@
+# Cline Rules for macOS Shell Configuration Repository
+
+## Context Loading
+Always start conversations by reading these context files to understand the current state:
+1. `memory/context/user-profile.md` - User background and preferences
+2. `memory/context/system-state.md` - Current system configuration
+3. `memory/context/current-projects.md` - Active work and priorities
+
+## User Background
+- Primary experience: Windows user transitioning to macOS
+- Prefers detailed explanations of macOS-specific concepts and differences from Windows
+- Values command-line solutions and automation
+- Uses VSCode with Cline for development
+- Repository serves as both configuration management and knowledge base
+
+## Communication Style
+- Provide clear, technical explanations without unnecessary conversational fluff
+- Include macOS context when explaining concepts (e.g., "unlike Windows, macOS uses...")
+- Offer command-line solutions when available
+- Cross-reference related memory bank entries when relevant
+- Be direct and to-the-point while being thorough
+
+## Memory Bank Integration
+- When learning new macOS concepts, update or create entries in `memory/knowledge/macos/`
+- For troubleshooting solutions, document in `memory/knowledge/troubleshooting/`
+- Update `memory/context/current-projects.md` when starting or completing work
+- Use templates from `memory/templates/` for consistent documentation
+- Cross-reference related knowledge base entries
+
+## Development Preferences
+- Dotfiles managed with GNU Stow in `dotfiles/` directory
+- Shell configuration: Zsh with Cline-compatible feature flags
+- Package management: Homebrew for system packages
+- Version management: NVM for Node.js, pyenv for Python
+- Documentation: Markdown format with cross-references
+
+## Project Workflow
+- Update memory bank context files when system state changes
+- Document new scripts and configurations
+- Maintain clean, organized file structure
+- Use git for version control and change tracking
+- Prefer automation and reproducible setups
+
+## Code Standards
+- Use consistent markdown formatting in memory bank
+- Include timestamps in documentation
+- Add cross-references between related topics
+- Use descriptive filenames and directory structure
+- Comment shell scripts and configurations clearly
+
+## Automation Preferences
+- Prefer shell aliases and functions for common tasks
+- Create scripts for repetitive operations
+- Use existing tools (stow, brew, git) rather than reinventing
+- Integrate new tools with existing workflow
+- Document automation in memory bank
+
+## Learning Focus
+- macOS system administration and configuration
+- Terminal and command-line proficiency
+- Development environment optimization
+- Differences between Windows and macOS workflows
+- Best practices for Unix-based systems
+
+## Quick References
+- Repository root: `~/GitHub/shell`
+- Dotfiles: `~/GitHub/shell/dotfiles`
+- Memory bank: `~/GitHub/shell/memory`
+- Scripts: `~/GitHub/shell/scripts`
+- Use `realias` to reload shell configuration
+- Use memory bank aliases (memory, memedit, memprojects, etc.)
+
+## Git Workflow and Attribution
+- **CRITICAL**: ALWAYS ask for user approval before executing `git commit`
+- **Workflow**:
+  1. After making changes, use `git add` to stage the modified files
+  2. Prepare a descriptive commit message that includes "Created by Cline" or "Modified by Cline"
+  3. Present the staged changes and proposed commit message to the user
+  4. Use `ask_followup_question` to explicitly request approval to commit
+  5. Only execute `git commit` after receiving explicit user approval
+  6. If user declines, leave changes staged for manual handling
+- **Attribution Format**: Include "Created by Cline" or "Modified by Cline" in all commit messages
+- **Example**: "Fix shell configuration - Modified by Cline" or "Add memory bank entry - Created by Cline"
+- **Rationale**: This balances automation (prepared commits with good messages) with user control (review before finalizing)
+
+## Notes
+- Always check existing memory bank entries before creating new ones
+- Update system state documentation after major changes
+- Maintain the balance between comprehensive documentation and usability
+- Remember that this repository serves as both personal configuration and learning resource
