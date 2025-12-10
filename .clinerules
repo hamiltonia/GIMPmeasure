@@ -71,17 +71,23 @@ Always start conversations by reading these context files to understand the curr
 - Use memory bank aliases (memory, memedit, memprojects, etc.)
 
 ## Git Workflow and Attribution
-- **CRITICAL**: ALWAYS ask for user approval before executing `git commit`
-- **Workflow**:
-  1. After making changes, use `git add` to stage the modified files
-  2. Prepare a descriptive commit message that includes "Created by Cline" or "Modified by Cline"
-  3. Present the staged changes and proposed commit message to the user
-  4. Use `ask_followup_question` to explicitly request approval to commit
-  5. Only execute `git commit` after receiving explicit user approval
-  6. If user declines, leave changes staged for manual handling
+- **CRITICAL**: Do NOT stage files (`git add`) without explicit user request
+- **CRITICAL**: Do NOT ask about committing until user explicitly requests a commit
+- **CRITICAL**: Do NOT push without explicit user request
+- **Rationale**: User prefers to stage files manually to watch incremental diffs during development
+- **When User Requests a Commit**:
+  1. Stage ALL modified/new/deleted files with `git add -A`
+  2. **Determine what needs inspection**:
+     - For files I worked on in this session: Use existing context from the conversation (no re-inspection needed)
+     - For files I don't have context about: Inspect those files to understand the changes
+  3. Prepare a comprehensive commit message covering ALL staged changes
+  4. Include "Created by Cline" or "Modified by Cline" attribution
+  5. Present the staged changes and proposed commit message to user
+  6. Use `ask_followup_question` to explicitly request approval to commit
+  7. Only execute `git commit` after receiving explicit user approval
+- **Efficiency Note**: Skip redundant file inspection when context is already known from the current session
 - **Attribution Format**: Include "Created by Cline" or "Modified by Cline" in all commit messages
-- **Example**: "Fix shell configuration - Modified by Cline" or "Add memory bank entry - Created by Cline"
-- **Rationale**: This balances automation (prepared commits with good messages) with user control (review before finalizing)
+- **Example**: "Add Debian support for shell scripts - Modified by Cline"
 
 ## Notes
 - Always check existing memory bank entries before creating new ones
